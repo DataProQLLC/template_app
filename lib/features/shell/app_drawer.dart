@@ -13,7 +13,7 @@ Future<void> _signout(BuildContext context) async {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: UltraColors.surface,
+        backgroundColor: AppColors.surface,
         title: const Text('Sign out?'),
         actions: [
           TextButton(
@@ -23,8 +23,8 @@ Future<void> _signout(BuildContext context) async {
           FilledButton(
             onPressed: () => Navigator.pop(ctx, true),
             style: FilledButton.styleFrom(
-              backgroundColor: UltraColors.rejected,
-              foregroundColor: UltraColors.ink,
+              backgroundColor: AppColors.rejected,
+              foregroundColor: AppColors.ink,
             ),
             child: const Text('Sign out'),
           ),
@@ -47,7 +47,7 @@ Future<void> _signout(BuildContext context) async {
 
     return Drawer(
       width: MediaQuery.of(context).size.width * 0.62,
-      backgroundColor: UltraColors.surface,
+      backgroundColor: AppColors.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.horizontal(right: Radius.circular(20)),
       ),
@@ -63,12 +63,12 @@ Future<void> _signout(BuildContext context) async {
                   height: 26,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: UltraColors.accepted.withValues(alpha: 0.16),
+                    color: AppColors.accepted.withValues(alpha: 0.16),
                     borderRadius: BorderRadius.circular(7),
                   ),
                   child: const Text('U',
                       style: TextStyle(
-                        color: UltraColors.accepted,
+                        color: AppColors.accepted,
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                       )),
@@ -93,18 +93,8 @@ Future<void> _signout(BuildContext context) async {
                 );
               },
             ),
-            // _Item(
-            //   icon: Icons.bookmark_border,
-            //   label: 'Saved claims',
-            //   onTap: () => Navigator.pop(context),
-            // ),
-            // _Item(
-            //   icon: Icons.settings_outlined,
-            //   label: 'Settings',
-            //   onTap: () => Navigator.pop(context),
-            // ),
             const Spacer(),
-            const Divider(height: 1, color: UltraColors.border),
+            const Divider(height: 1, color: AppColors.border),
             _Item(
               icon: Icons.logout,
               label: 'Sign out',
@@ -118,7 +108,7 @@ Future<void> _signout(BuildContext context) async {
               padding: const EdgeInsets.fromLTRB(18, 8, 18, 16),
               child: Text('v0.1.0',
                   style: text.bodySmall
-                      ?.copyWith(color: UltraColors.textLow, fontSize: 11)),
+                      ?.copyWith(color: AppColors.textLow, fontSize: 11)),
             ),
           ],
         ),
@@ -142,7 +132,7 @@ class _Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = danger ? UltraColors.rejected : UltraColors.textMid;
+    final color = danger ? AppColors.rejected : AppColors.textMid;
     return InkWell(
       onTap: onTap,
       child: Padding(

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../auth/auth_repository.dart';
 import '../auth/auth_screen.dart';
-import '../claims/claims_tab.dart';
-import '../explore/explore_tab.dart';
 import '../activity/activity_tab.dart';
 import 'dart:ui';
 import '../../core/theme.dart';
@@ -40,12 +38,12 @@ class _HomeShellState extends State<HomeShell> {
             height: 26,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: UltraColors.accepted.withValues(alpha: 0.16),
+              color: AppColors.accepted.withValues(alpha: 0.16),
               borderRadius: BorderRadius.circular(7),
             ),
             child: const Text('U',
                 style: TextStyle(
-                  color: UltraColors.accepted,
+                  color: AppColors.accepted,
                   fontSize: 14,
                   fontWeight: FontWeight.w700,
                 )),
@@ -62,7 +60,7 @@ class _HomeShellState extends State<HomeShell> {
       ),
       body: IndexedStack(
         index: _index,
-        children: const [ClaimsTab(), ExploreTab(), ActivityTab()],
+        children: const [ActivityTab()],
       ),
       bottomNavigationBar: _FloatingNav(
         index: _index,
@@ -80,8 +78,6 @@ class _FloatingNav extends StatelessWidget {
 
   static const _items = [
     (Icons.home_outlined, Icons.home, 'Home'),
-    (Icons.search_outlined, Icons.search, 'Explore'),
-    (Icons.timeline_outlined, Icons.timeline, 'Activity'),
   ];
 
   @override
@@ -95,7 +91,7 @@ class _FloatingNav extends StatelessWidget {
           child: Container(
             height: 62,
 decoration: BoxDecoration(
-                color: UltraColors.ink.withValues(alpha: 0.55),
+                color: AppColors.ink.withValues(alpha: 0.55),
                 borderRadius: BorderRadius.circular(28),
                 border: Border.all(
                   color: Colors.white.withValues(alpha: 0.08),
@@ -117,8 +113,8 @@ decoration: BoxDecoration(
                           selected ? filled : outline,
                           size: 21,
                           color: selected
-                              ? UltraColors.accepted
-                              : UltraColors.textLow,
+                              ? AppColors.accepted
+                              : AppColors.textLow,
                         ),
                         const SizedBox(height: 3),
                         Text(
@@ -127,8 +123,8 @@ decoration: BoxDecoration(
                             fontSize: 10,
                             letterSpacing: 0.2,
                             color: selected
-                                ? UltraColors.accepted
-                                : UltraColors.textLow,
+                                ? AppColors.accepted
+                                : AppColors.textLow,
                             fontWeight:
                                 selected ? FontWeight.w600 : FontWeight.w400,
                           ),

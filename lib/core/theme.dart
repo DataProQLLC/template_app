@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class UltraColors {
+class AppColors {
   static const ink        = Color(0xFF0E1116);
   static const surface    = Color(0xFF161B22);
   static const surfaceAlt = Color(0xFF1C232D);
@@ -16,38 +16,38 @@ class UltraColors {
   static const collecting = Color(0xFF5B7FE0);
 }
 
-ThemeData ultraTheme() {
+ThemeData appTheme() {
   const scheme = ColorScheme.dark(
-    primary: UltraColors.accepted,
-    secondary: UltraColors.collecting,
-    surface: UltraColors.surface,
-    error: UltraColors.rejected,
-    onSurface: UltraColors.textHigh,
-    outline: UltraColors.border,
-    outlineVariant: UltraColors.border,
+    primary: AppColors.accepted,
+    secondary: AppColors.collecting,
+    surface: AppColors.surface,
+    error: AppColors.rejected,
+    onSurface: AppColors.textHigh,
+    outline: AppColors.border,
+    outlineVariant: AppColors.border,
   );
 
   return ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
     colorScheme: scheme,
-    scaffoldBackgroundColor: UltraColors.ink,
+    scaffoldBackgroundColor: AppColors.ink,
     fontFamily: 'SF Pro Text',
     appBarTheme: const AppBarTheme(
-      backgroundColor: UltraColors.ink,
+      backgroundColor: AppColors.ink,
       surfaceTintColor: Colors.transparent,
       elevation: 0,
       centerTitle: false,
       titleTextStyle: TextStyle(
-        color: UltraColors.textHigh,
+        color: AppColors.textHigh,
         fontSize: 22,
         fontWeight: FontWeight.w600,
         letterSpacing: -0.4,
       ),
     ),
     navigationBarTheme: NavigationBarThemeData(
-      backgroundColor: UltraColors.surface,
-      indicatorColor: UltraColors.accepted.withValues(alpha: 0.15),
+      backgroundColor: AppColors.surface,
+      indicatorColor: AppColors.accepted.withValues(alpha: 0.15),
       surfaceTintColor: Colors.transparent,
       elevation: 0,
       height: 64,
@@ -57,28 +57,28 @@ ThemeData ultraTheme() {
     ),
     textTheme: const TextTheme(
       titleLarge: TextStyle(
-        color: UltraColors.textHigh, fontSize: 20,
+        color: AppColors.textHigh, fontSize: 20,
         fontWeight: FontWeight.w600, letterSpacing: -0.4, height: 1.25,
       ),
       titleMedium: TextStyle(
-        color: UltraColors.textHigh, fontSize: 17,
+        color: AppColors.textHigh, fontSize: 17,
         fontWeight: FontWeight.w600, letterSpacing: -0.3, height: 1.35,
       ),
       titleSmall: TextStyle(
-        color: UltraColors.textHigh, fontSize: 14,
+        color: AppColors.textHigh, fontSize: 14,
         fontWeight: FontWeight.w600, letterSpacing: -0.1,
       ),
       bodyMedium: TextStyle(
-        color: UltraColors.textMid, fontSize: 14, height: 1.5,
+        color: AppColors.textMid, fontSize: 14, height: 1.5,
       ),
       bodySmall: TextStyle(
-        color: UltraColors.textMid, fontSize: 13, height: 1.45,
+        color: AppColors.textMid, fontSize: 13, height: 1.45,
       ),
       labelSmall: TextStyle(
-        color: UltraColors.textLow, fontSize: 11,
+        color: AppColors.textLow, fontSize: 11,
         fontWeight: FontWeight.w600, letterSpacing: 1.1,
       ),
     ),
-    dividerColor: UltraColors.border,
+    dividerColor: AppColors.border,
   );
 }

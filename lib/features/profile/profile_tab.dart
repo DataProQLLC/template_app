@@ -11,10 +11,10 @@ typedef ProfileData = ({
 });
 
 Color _trustColor(double t) {
-  if (t >= 0.90) return UltraColors.accepted;
-  if (t >= 0.70) return UltraColors.contested;
+  if (t >= 0.90) return AppColors.accepted;
+  if (t >= 0.70) return AppColors.contested;
   if (t >= 0.50) return const Color(0xFFE07B39);
-  return UltraColors.rejected;
+  return AppColors.rejected;
 }
 
 class ProfileTab extends StatefulWidget {
@@ -96,13 +96,13 @@ class _ProfileTabState extends State<ProfileTab>
                     height: 62,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: UltraColors.accepted.withValues(alpha: 0.16),
+                      color: AppColors.accepted.withValues(alpha: 0.16),
                       shape: BoxShape.circle,
                     ),
                     child: Text(
                       username.isNotEmpty ? username[0].toUpperCase() : '?',
                       style: const TextStyle(
-                        color: UltraColors.accepted,
+                        color: AppColors.accepted,
                         fontSize: 24,
                         fontWeight: FontWeight.w600,
                       ),
@@ -120,7 +120,7 @@ class _ProfileTabState extends State<ProfileTab>
                               ? 'Member since ${_month(joined)} ${joined.year}'
                               : '',
                           style: text.bodySmall?.copyWith(
-                            color: UltraColors.textLow,
+                            color: AppColors.textLow,
                           ),
                         ),
                       ],
@@ -142,9 +142,9 @@ class _ProfileTabState extends State<ProfileTab>
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: UltraColors.surface,
+                  color: AppColors.surface,
                   borderRadius: BorderRadius.circular(14),
-                  border: Border.all(color: UltraColors.border),
+                  border: Border.all(color: AppColors.border),
                 ),
                 child: Text(
                   'Your record reflects two things: whether you spot views that '
@@ -262,7 +262,7 @@ class _StatGrid extends StatelessWidget {
               child: _Stat(
                 value: '$wins',
                 label: 'Right vs the crowd',
-                accent: wins > 0 ? UltraColors.contested : null,
+                accent: wins > 0 ? AppColors.contested : null,
               ),
             ),
           ],
@@ -272,7 +272,7 @@ class _StatGrid extends StatelessWidget {
           Text(
             'Based on $resolved resolved ${resolved == 1 ? "claim" : "claims"}',
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: UltraColors.textLow,
+              color: AppColors.textLow,
               fontSize: 12,
             ),
           ),
@@ -294,9 +294,9 @@ class _Stat extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: UltraColors.surface,
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: UltraColors.border),
+        border: Border.all(color: AppColors.border),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -304,7 +304,7 @@ class _Stat extends StatelessWidget {
           Text(
             value,
             style: TextStyle(
-              color: accent ?? UltraColors.textHigh,
+              color: accent ?? AppColors.textHigh,
               fontSize: 26,
               fontWeight: FontWeight.w600,
               letterSpacing: -0.5,
@@ -314,7 +314,7 @@ class _Stat extends StatelessWidget {
           Text(
             label,
             style: text.bodySmall?.copyWith(
-              color: UltraColors.textLow,
+              color: AppColors.textLow,
               fontSize: 12,
             ),
           ),
@@ -339,11 +339,11 @@ class _Tile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = danger ? UltraColors.rejected : UltraColors.textMid;
+    final color = danger ? AppColors.rejected : AppColors.textMid;
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Material(
-        color: UltraColors.surface,
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
           onTap: onTap,
@@ -364,7 +364,7 @@ class _Tile extends StatelessWidget {
                   const Icon(
                     Icons.chevron_right,
                     size: 18,
-                    color: UltraColors.textLow,
+                    color: AppColors.textLow,
                   ),
               ],
             ),

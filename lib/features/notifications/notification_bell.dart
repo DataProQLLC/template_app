@@ -28,7 +28,7 @@ class _NotificationBellState extends State<NotificationBell> {
   void _open(List<Map<String, dynamic>> items) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: UltraColors.surface,
+      backgroundColor: AppColors.surface,
       showDragHandle: true,
       isScrollControlled: true,
       builder: (_) => _Sheet(items: items),
@@ -49,7 +49,7 @@ class _NotificationBellState extends State<NotificationBell> {
           children: [
             IconButton(
               icon: const Icon(Icons.notifications_none, size: 23),
-              color: UltraColors.textMid,
+              color: AppColors.textMid,
               onPressed: () => _open(items),
             ),
             if (unread > 0)
@@ -61,9 +61,9 @@ class _NotificationBellState extends State<NotificationBell> {
                       horizontal: 5, vertical: 1),
                   constraints: const BoxConstraints(minWidth: 16),
                   decoration: BoxDecoration(
-                    color: UltraColors.rejected,
+                    color: AppColors.rejected,
                     borderRadius: BorderRadius.circular(9),
-                    border: Border.all(color: UltraColors.ink, width: 1.5),
+                    border: Border.all(color: AppColors.ink, width: 1.5),
                   ),
                   child: Text(
                     unread > 9 ? '9+' : '$unread',
@@ -106,20 +106,20 @@ class _Sheet extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 40),
                 child: Text('Nothing new.',
                     style: text.bodySmall
-                        ?.copyWith(color: UltraColors.textLow)),
+                        ?.copyWith(color: AppColors.textLow)),
               )
             else
               Expanded(
                 child: ListView.separated(
                   itemCount: items.length,
                   separatorBuilder: (_, __) =>
-                      const Divider(height: 1, color: UltraColors.border),
+                      const Divider(height: 1, color: AppColors.border),
                   itemBuilder: (context, i) {
                     final n = items[i];
                     final unread = n['read_at'] == null;
                     return Container(
                       color: unread
-                          ? UltraColors.collecting.withValues(alpha: 0.06)
+                          ? AppColors.collecting.withValues(alpha: 0.06)
                           : null,
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 14),

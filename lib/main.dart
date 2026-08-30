@@ -1,6 +1,6 @@
 // lib/main.dart
 import 'package:flutter/material.dart';
-import 'package:ultra_app/features/shell/home_shell.dart';
+import 'package:template_app/features/shell/home_shell.dart';
 import 'core/config.dart';
 import 'core/db.dart';
 import 'features/auth/auth_repository.dart';
@@ -16,19 +16,19 @@ import 'core/theme.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initSupabase();
-  runApp(const UltraApp());
+  runApp(const App());
 }
 
-class UltraApp extends StatelessWidget {
-  const UltraApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Ultra',
+      title: 'Template',
       debugShowCheckedModeBanner: !AppConfig.isProd,
-      theme: ultraTheme(),
-      darkTheme: ultraTheme(),
+      theme: appTheme(),
+      darkTheme: appTheme(),
       themeMode: ThemeMode.dark,
       home: const _Launch(),
     );
